@@ -3206,7 +3206,9 @@ static const unsigned int pSHA256InitState[8] =
 inline void SHA256Transform(void* pstate, void* pinput, const void* pinit)
 {
     memcpy(pstate, pinit, 32);
-    CryptoPP::SHA256::Transform((CryptoPP::word32*)pstate, (CryptoPP::word32*)pinput);
+//    CryptoPP::SHA256::Transform((CryptoPP::word32*)pstate, (CryptoPP::word32*)pinput);
+    // Use OpenSSL
+    SHA256_Transform((SHA256_CTX *)pstate, (const unsigned char *)pinput);
 }
 
 //

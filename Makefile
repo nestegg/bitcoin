@@ -29,9 +29,11 @@ LIBS= \
    -l z \
    -l dl
 
-DEFS=-DNOPCH -DFOURWAYSSE2 -DUSE_SSL
+#DEFS=-DNOPCH -DFOURWAYSSE2 -DUSE_SSL
+DEFS=-DUSE_SSL
 #DEBUGFLAGS=-g -D__WXDEBUG__
-CFLAGS=-O2 -Wno-invalid-offsetof -Wformat $(DEBUGFLAGS) $(DEFS) $(INCLUDEPATHS)
+#DEBUGFLAGS=-pg
+CFLAGS=-O3 -Wno-invalid-offsetof -Wformat $(DEBUGFLAGS) $(DEFS) $(INCLUDEPATHS)
 HEADERS=headers.h strlcpy.h serialize.h uint256.h util.h key.h bignum.h base58.h \
     script.h db.h net.h irc.h main.h rpc.h uibase.h ui.h noui.h init.h
 
